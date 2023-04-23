@@ -8,7 +8,7 @@
 								<div class="card-body">
     <h5 class="card-title">Total Deposits</h5>
     @isset($totalDeposits)
-    <p>Total deposits: {{ $totalDeposits }}</p>
+    <p>{{ $totalDeposits }}</p>
 @endisset
 
 </div>
