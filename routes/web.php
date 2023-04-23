@@ -41,7 +41,7 @@ Route::middleware(['auth', \App\Http\Middleware\AuthenticateDashboard::class])->
     Route::get('/deposit/{id}/edit', [App\Http\Controllers\DepositController::class, 'edit'])->name('deposit.edit');
     Route::put('/deposit/{id}', [App\Http\Controllers\DepositController::class, 'update'])->name('deposit.update');
     Route::delete('/deposit/{id}', [App\Http\Controllers\DepositController::class, 'destroy'])->name('deposit.destroy');
-    Route::get('/users/{user}/deposits/total-deposits', [App\Http\Controllers\DepositController::class, 'index'])->name('users.deposits.total');
+    Route::get('/dashboard', [App\Http\Controllers\DepositController::class, 'index'])->name('dashboard');
 
 });
 
