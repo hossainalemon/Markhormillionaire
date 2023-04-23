@@ -19,7 +19,7 @@ class DepositController extends Controller
             
 public function totalDeposits(User $user)
 {
-    $totalDeposits = Deposit::where('user_id', $user->id)->sum('amount');
+    $totalDeposits = Deposit::where('user_id', $user->id)->get('amount');
     return view('dashboard', compact('totalDeposits'));
 }
 
