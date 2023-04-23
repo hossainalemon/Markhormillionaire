@@ -17,14 +17,13 @@ class DepositController extends Controller
 }
 
             
-    public function totalDeposits(User $user)
-    {
-        $user = Auth::user();
-        $deposits = Deposit::where('user_id', $user->id)->get();
-        $totalDeposits = Deposit::where('user_id', $user->id)->sum('amount');
-        return view('dashboard', compact('user', 'deposits', 'totalDeposits'));
+public function showDashboard(User $user)
+{
+    $deposits = Deposit::where('user_id', $user->id)->get();
+    $totalDeposits = Deposit::where('user_id', $user->id)->sum('amount');
+    return view('dashboard', compact('user', 'deposits', 'totalDeposits'));
+}
 
-    }
     
 
 
