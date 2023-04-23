@@ -108,7 +108,7 @@
 																</div>
 																<!--end::Number-->
 																<!--begin::Label-->
-																<div class="fw-bold fs-6 text-gray-400">No Of Tockens</div>
+																<div class="fw-bold fs-6 text-gray-400">No Of Tockens {{ $totalDeposits }}</div>
 																<!--end::Label-->
 															</div>
 															<!--end::Stat-->
