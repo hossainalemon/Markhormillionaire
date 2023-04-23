@@ -5,13 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Deposit;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class DepositController extends Controller
+
+
 {
+    public function __construct()
+{
+    $this->middleware('auth');
+}
 
             
     public function totalDeposits(User $user)
     {
+        $user = Auth::user();
         $deposits = Deposit::where('user_id', $user->id)->get();
         $totalDeposits = Deposit::where('user_id', $user->id)->sum('amount');
         return view('dashboard', compact('user', 'deposits', 'totalDeposits'));
@@ -27,6 +35,7 @@ class DepositController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
         return view('dashboard');
     }
 
