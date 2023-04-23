@@ -79,7 +79,7 @@
 																</div>
 																<!--end::Number-->
 																<!--begin::Label-->
-																<div class="fw-bold fs-6 text-gray-400">Total Earning</div>
+																<div class="fw-bold fs-6 text-gray-400">Total Earning: {{ $totalDeposits }}</div>
 																<!--end::Label-->
 															</div>
 															<!--end::Stat-->
