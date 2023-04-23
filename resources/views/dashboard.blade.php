@@ -5,20 +5,11 @@
 						@if(session('success'))
 											    <div class="alert alert-success">{{ session('success') }}</div>
 								@endif
+								<div class="card-body">
+    <h5 class="card-title">Total Deposits</h5>
+    <p class="card-text">{{ $totalDeposits }}</p>
+</div>
 
-								<div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-
-                    <div class="card-body">
-                        <h3>{{ __('Total Deposits') }}: {{ $totalDeposits }}</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 						<!--begin::Post-->
 						<div class="post d-flex flex-column-fluid" id="kt_post">
 							<!--begin::Container-->
