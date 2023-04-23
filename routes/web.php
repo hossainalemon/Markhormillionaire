@@ -43,6 +43,10 @@ Route::middleware(['auth', \App\Http\Middleware\AuthenticateDashboard::class])->
     Route::delete('/deposit/{id}', [App\Http\Controllers\DepositController::class, 'destroy'])->name('deposit.destroy');
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
     Route::get('/users/{user}/deposits/total', [App\Http\Controllers\DepositController::class, 'getTotalDeposits'])->middleware(['auth'])->name('users.deposits.total');
+    Route::get('/withdrawals/create', [App\Http\Controllers\WithdrawalController::class, 'showWithdrawalForm'])->name('withdrawals.create');
+    Route::post('/withdrawals', [App\Http\Controllers\WithdrawalController::class, 'createWithdrawal'])->name('withdrawals.store');
+
+
     
 
 

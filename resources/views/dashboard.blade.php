@@ -54,7 +54,7 @@
 													<!--begin::Actions-->
 													<div class="d-flex my-4">
 														<a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_1">Deposit</a>
-														<a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_offer_a_deal">Withdraw</a>
+														<a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal" data-bs-target="#withdrawModal">Withdraw</a>
 													</div>
 													<!--end::Actions-->
 												</div>
@@ -277,5 +277,41 @@
         </div>
     </div>
 </div>
-<!-- end::Deposit Modal -->					
+<!-- end::Deposit Modal -->	
+<!-- Modal -->
+<div class="modal fade" id="withdrawModal" tabindex="-1" aria-labelledby="withdrawModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="withdrawModalLabel">Withdrawal Request</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ route('users.withdraws.store') }}" method="POST">
+          @csrf
+          <div class="mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="number" class="form-control" id="amount" name="amount" required>
+          </div>
+		  <div class="mb-3">
+            <label for="amount" class="form-label">Account Number</label>
+            <input type="text" class="form-control" id="account_number" name="account_number" required>
+          </div>
+          <div class="mb-3">
+            <label for="payment_method" class="form-label">Payment Method</label>
+            <select class="form-select" id="payment_method" name="payment_method" required>
+              <option value="paypal">Paypal</option>
+              <option value="bank_transfer">Bank Transfer</option>
+              <option value="stripe">Stripe</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>			
 @include('footer')
