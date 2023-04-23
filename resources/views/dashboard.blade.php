@@ -7,7 +7,10 @@
 								@endif
 								<div class="card-body">
     <h5 class="card-title">Total Deposits</h5>
-    <p class="card-text">{{ $totalDeposits }}</p>
+    @isset($totalDeposits)
+    <p>Total deposits: {{ $totalDeposits }}</p>
+@endisset
+
 </div>
 
 						<!--begin::Post-->
