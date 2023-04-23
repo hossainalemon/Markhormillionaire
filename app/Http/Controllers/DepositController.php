@@ -2,71 +2,71 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Deposit;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class DepositController extends Controller
 {
-    public function index(User $user)
+    public function __construct()
     {
-        $deposits = Deposit::where('user_id', $user->id)->get();
-        $totalDeposits = Deposit::where('user_id', $user->id)->sum('amount');
-        return view('dashboard', compact('user', 'deposits', 'totalDeposits'));
+        $this->middleware(['auth', 'verified']);
     }
 
     public function create()
     {
-        return view('dashboard');
+        return view('deposits.create');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'amount' => 'required|numeric',
-            'payment_method' => 'required|string|max:255',
-            'transaction_number' => 'required|unique:deposits',
+            'user_id' => 'required|integer',
+            'amount' => 'required|numeric|min:1',
         ]);
 
-        $deposit = new Deposit;
-        $deposit->user_id = auth()->id();
-        $deposit->amount = $request->amount;
-        $deposit->payment_method = $request->payment_method;
-        $deposit->transaction_number = $request->transaction_number;
-        $deposit->save();
+        Deposit::create([
+            'user_id' => $request->user_id,
+            'amount' => $request->amount,
+            'status' => 'pending',
+        ]);
 
-        return redirect()->route('dashboard')->with('success', 'Deposit created successfully.');
+        return Redirect::back()->with('success', 'Deposit Request submitted successfully!');
+    }
+
+    public function index(User $user)
+    {
+        $deposits = $user->deposits()->orderByDesc('created_at')->get();
+
+        return view('deposits.index', compact('deposits'));
     }
 
     public function show($id)
     {
         $deposit = Deposit::findOrFail($id);
 
-        return view('dashboard', compact('deposit'));
+        return view('deposits.show', compact('deposit'));
     }
 
     public function edit($id)
     {
         $deposit = Deposit::findOrFail($id);
 
-        return view('dashboard', compact('deposit'));
+        return view('deposits.edit', compact('deposit'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'amount' => 'required|numeric',
-            'payment_method' => 'required|in:bank,mobile_bank',
-            'transaction_number' => 'required|unique:deposits',
+            'status' => 'required|string|in:approved,rejected',
         ]);
 
         $deposit = Deposit::findOrFail($id);
-        $deposit->amount = $request->amount;
-        $deposit->payment_method = $request->payment_method;
-        $deposit->transaction_number = $validatedData['transaction_number'];
-        $deposit->save();
+        $deposit->update(['status' => $request->status]);
 
-        return redirect()->route('dashboard', $deposit->id)->with('success', 'Deposit updated successfully.');
+        return Redirect::back()->with('success', 'Deposit status updated successfully!');
     }
 
     public function destroy($id)
@@ -74,6 +74,7 @@ class DepositController extends Controller
         $deposit = Deposit::findOrFail($id);
         $deposit->delete();
 
-        return redirect()->route('dashboard')->with('success', 'Deposit deleted successfully.');
+        return Redirect::back()->with('success', 'Deposit deleted successfully!');
     }
 }
+

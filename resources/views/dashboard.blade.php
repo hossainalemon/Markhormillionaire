@@ -79,7 +79,7 @@
 																</div>
 																<!--end::Number-->
 																<!--begin::Label-->
-																<div class="fw-bold fs-6 text-gray-400">Total Earning: {{ $totalDeposits }}</div>
+																<div class="fw-bold fs-6 text-gray-400">Total Earning: {{ $totalDeposits }} </div>
 																<!--end::Label-->
 															</div>
 															<!--end::Stat-->
@@ -107,6 +107,12 @@
 																<!--end::Label-->
 															</div>
 															<!--end::Stat-->
+															<div class="card-body">
+    <h5 class="card-title">Total Deposits</h5>
+    <p class="card-text">${{ number_format($totalDeposits, 2) }}</p>
+    <a href="{{ route('users.deposits.total', ['user' => Auth::user()->id]) }}" class="btn btn-primary">View Deposits</a>
+</div>
+
 															<!--begin::Stat-->
 															<div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
 																<!--begin::Number-->
