@@ -10,25 +10,28 @@ use Illuminate\Support\Facades\Auth;
 
 class WithdrawalController extends Controller
 {
-    public function showWithdrawalForm()
+    public function showWithdrawalForm(User $user)
 {
-    return view('dashboard');
+     $totalwithraw = Deposit::where('user_id', $user->id)->sum('amount');
+    return view('dashboard', compact('totalwithraw'));
 }
 
-public function createWithdrawal(Request $request)
+public function store(Request $request)
 {
     $validatedData = $request->validate([
         'amount' => 'required|numeric',
         'payment_method' => 'required|string',
         'account_number' => 'required|string',
     ]);
-
     $validatedData['status'] = 'pending';
     $validatedData['user_id'] = Auth::user()->id;
 
     Withdrawal::create($validatedData);
 
-    return redirect()->route('dashboard')->back()->with('success', 'Your withdrawal request has been submitted successfully.');
+    return redirect()->route('dashboard')->with('success', 'Withdrawal Request Pending.');
 }
+
+
+
 
 }

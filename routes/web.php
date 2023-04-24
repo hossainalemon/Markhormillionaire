@@ -35,24 +35,22 @@ Route::get('/signout', [App\Http\Controllers\DashboardController::class, 'signou
 
 Route::middleware(['auth', \App\Http\Middleware\AuthenticateDashboard::class])->group(function () {
    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    
+    //withdraw
+
+    Route::get('/withdrawals/create', [App\Http\Controllers\WithdrawalController::class, 'showWithdrawalForm'])->name('withdrawals.create');
+    Route::post('/withdrawals', [App\Http\Controllers\WithdrawalController::class, 'store'])->name('withdraws.store');
+    // deposit
     Route::get('/deposit', [App\Http\Controllers\DepositController::class, 'create'])->name('deposit.create');
     Route::post('/deposit', [App\Http\Controllers\DepositController::class, 'store'])->name('deposit.store');
     Route::get('/deposit/{id}', [App\Http\Controllers\DepositController::class, 'show'])->name('deposit.show');
     Route::get('/deposit/{id}/edit', [App\Http\Controllers\DepositController::class, 'edit'])->name('deposit.edit');
     Route::put('/deposit/{id}', [App\Http\Controllers\DepositController::class, 'update'])->name('deposit.update');
     Route::delete('/deposit/{id}', [App\Http\Controllers\DepositController::class, 'destroy'])->name('deposit.destroy');
-    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
-    Route::get('/users/{user}/deposits/total', [App\Http\Controllers\DepositController::class, 'getTotalDeposits'])->middleware(['auth'])->name('users.deposits.total');
-    Route::get('/withdrawals/create', [App\Http\Controllers\WithdrawalController::class, 'showWithdrawalForm'])->name('withdrawals.create');
-    Route::post('/withdrawals', [App\Http\Controllers\WithdrawalController::class, 'createWithdrawal'])->name('withdraws.store');
-
-
-    
-
-
-
-
+    Route::get('/total/deposits', [App\Http\Controllers\DepositController::class, 'getTotalDeposits'])->name('total_deposits');
 });
+    
+ 
 
 
 

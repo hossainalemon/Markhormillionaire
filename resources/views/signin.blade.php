@@ -56,7 +56,7 @@
 								<!--end::Title-->
 								<!--begin::Link-->
 								<div class="text-gray-400 fw-bold fs-4">New Here?
-								<a href="/signup" class="link-primary fw-bolder">Create an Account</a></div>
+								<a href="/signup" class="link-primary fw-bolder">Create an Account </a></div>
 								<!--end::Link-->
 							</div>
 							<!--begin::Heading-->

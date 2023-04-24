@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Deposit;
 use App\Models\User;
@@ -16,15 +15,13 @@ class DepositController extends Controller
     $this->middleware('auth');
 }
 
-            
-public function totalDeposits(User $user)
+
+public function getTotalDeposits(User $user)
 {
-    $totalDeposits = Deposit::where('user_id', $user->id)->get('amount');
-    return view('dashboard', compact('totalDeposits'));
+    $deposits = Deposit::where('user_id', $user->id)->get();
+    $totalDeposits = Deposit::where('user_id', $user->id)->sum('amount');
+    return view('dashboard', compact('user', 'deposits', 'totalDeposits'));
 }
-
-
-    
 
 
     /**
@@ -49,7 +46,7 @@ public function totalDeposits(User $user)
         $request->validate([
             'amount' => 'required|numeric',
             'payment_method' => 'required|string|max:255',
-            'transaction_number' => 'required|unique:deposits',
+            'transaction_number' => 'required|max:255',
         ]);
 
         $deposit = new Deposit;
@@ -59,7 +56,7 @@ public function totalDeposits(User $user)
         $deposit->transaction_number = $request->transaction_number;
         $deposit->save();
 
-        return redirect()->route('dashboard')->with('success', 'Deposit created successfully.');
+        return redirect()->route('dashboard')->with('success', 'Deposit Request Pending.');
     }
 
 
