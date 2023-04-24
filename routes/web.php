@@ -42,10 +42,10 @@ Route::middleware(['auth', \App\Http\Middleware\AuthenticateDashboard::class])->
     Route::post('/withdrawals', [App\Http\Controllers\WithdrawalController::class, 'store'])->name('withdraws.store');
     // deposit
     Route::get('/deposit', [App\Http\Controllers\DepositController::class, 'create'])->name('deposit.create');
-    Route::post('/deposit', [App\Http\Controllers\DepositController::class, 'store'])->name('deposit.store');
+    Route::post('/deposit', [App\Http\Controllers\DashboardController::class, 'dipoststore'])->name('deposit.store');
     Route::get('/deposit/{id}', [App\Http\Controllers\DepositController::class, 'show'])->name('deposit.show');
     Route::get('/deposit/{id}/edit', [App\Http\Controllers\DepositController::class, 'edit'])->name('deposit.edit');
-    Route::put('/deposit/{id}', [App\Http\Controllers\DepositController::class, 'update'])->name('deposit.update');
+    Route::put('/deposit/{id}', [App\Http\Controllers\DashboardController::class, 'dipositupdate'])->name('deposit.update');
     Route::delete('/deposit/{id}', [App\Http\Controllers\DepositController::class, 'destroy'])->name('deposit.destroy');
     Route::get('/total/deposits', [App\Http\Controllers\DepositController::class, 'getTotalDeposits'])->name('total_deposits');
 });

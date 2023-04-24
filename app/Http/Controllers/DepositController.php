@@ -16,12 +16,6 @@ class DepositController extends Controller
 }
 
 
-public function getTotalDeposits(User $user)
-{
-    $deposits = Deposit::where('user_id', $user->id)->get();
-    $totalDeposits = Deposit::where('user_id', $user->id)->sum('amount');
-    return view('dashboard', compact('user', 'deposits', 'totalDeposits'));
-}
 
 
     /**
@@ -41,23 +35,7 @@ public function getTotalDeposits(User $user)
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'amount' => 'required|numeric',
-            'payment_method' => 'required|string|max:255',
-            'transaction_number' => 'required|max:255',
-        ]);
-
-        $deposit = new Deposit;
-        $deposit->user_id = auth()->id();
-        $deposit->amount = $request->amount;
-        $deposit->payment_method = $request->payment_method;
-        $deposit->transaction_number = $request->transaction_number;
-        $deposit->save();
-
-        return redirect()->route('dashboard')->with('success', 'Deposit Request Pending.');
-    }
+   
 
 
 
@@ -97,18 +75,13 @@ public function getTotalDeposits(User $user)
     public function update(Request $request, $id)
     {
         $request->validate([
-        'amount' => 'required|numeric',
-        'payment_method' => 'required|in:bank,mobile_bank',
-        'transaction_number' => 'required|unique:deposits',
+        'status' => 'active',
         ]);
-
         $deposit = Deposit::findOrFail($id);
-        $deposit->amount = $request->amount;
-        $deposit->payment_method = $request->payment_method;
-        $deposit->transaction_number = $request->transaction_number;
+        $deposit->status = $request->status;
         $deposit->save();
 
-        return redirect()->route('dashboard', $deposit->id)->with('success', 'Deposit updated successfully.');
+        return redirect()->route('dashboard', $deposit->id)->with('success', 'Deposit Accept successfully.');
     }
 
     /**

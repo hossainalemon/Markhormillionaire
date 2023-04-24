@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('remember_token')->nullable();
-            $table->enum('role', ['customer', 'vendor', 'affiliate']);
+            $table->enum('role', ['customer', 'vendor', 'affiliate', 'admin']);
             $table->enum('status', ['active', 'inactive']);
             $table->decimal('current_balance', 8, 2)->default(0);
             $table->decimal('earning_balance', 8, 2)->default(0);

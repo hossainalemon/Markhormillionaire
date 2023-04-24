@@ -67,6 +67,17 @@
 <script src="assets/js/custom/modals/upgrade-plan.js"></script>
 <!--end::Page Custom Javascript-->
 
+<script>
+$(document).ready(function(){
+  $('#depositModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    var depositId = button.data('id');
+    var modal = $(this);
+    modal.find('.modal-body').load('/deposits/' + depositId);
+  });
+});
+</script>
+
 <!-- Bootstrap Modal Javascript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js" integrity="sha512-EZxr7pRLH1lxcdvE8cCStbO9jHfrL1whuvv1iwwaYzK5O5wZDMRs3vP8tq3Lx9iKjSxRlhyBdLOJB1l4MHNY4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
