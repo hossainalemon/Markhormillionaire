@@ -129,11 +129,35 @@
 																	</span>
 																	<!--end::Svg Icon-->
 																	
-																	<div class="fs-2 fw-bolder" data-kt-countup="true" data-kt-countup-value="$user->earning_balance" data-kt-countup-prefix="RS.">0</div>
+																	<div class="fs-2 fw-bolder" data-kt-countup="true" data-kt-countup-value="{{$totalWithdraw}}" data-kt-countup-prefix="RS.">0</div>
 																</div>
 																<!--end::Number-->
 																<!--begin::Label-->
 																<div class="fw-bold fs-6 text-gray-400">Total Withdraw</div>
+																<!--end::Label-->
+															</div>
+															<!--end::Stat-->
+															<!--begin::Stat-->
+															<div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+																<!--begin::Number-->
+																<div class="d-flex align-items-center">
+																	<!--begin::Svg Icon | path: icons/duotone/Navigation/Arrow-down.svg-->
+																	<span class="svg-icon svg-icon-3 svg-icon-danger me-2">
+																		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																			<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																				<polygon points="0 0 24 0 24 24 0 24" />
+																				<rect fill="#000000" opacity="0.5" x="11" y="5" width="2" height="14" rx="1" />
+																				<path d="M6.70710678,18.7071068 C6.31658249,19.0976311 5.68341751,19.0976311 5.29289322,18.7071068 C4.90236893,18.3165825 4.90236893,17.6834175 5.29289322,17.2928932 L11.2928932,11.2928932 C11.6714722,10.9143143 12.2810586,10.9010687 12.6757246,11.2628459 L18.6757246,16.7628459 C19.0828436,17.1360383 19.1103465,17.7686056 18.7371541,18.1757246 C18.3639617,18.5828436 17.7313944,18.6103465 17.3242754,18.2371541 L12.0300757,13.3841378 L6.70710678,18.7071068 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000003, 14.999999) scale(1, -1) translate(-12.000003, -14.999999)" />
+																			</g>
+																		</svg>
+																	</span>
+																	<!--end::Svg Icon-->
+																	
+																	<div class="fs-2 fw-bolder" data-kt-countup="true" data-kt-countup-value="{{$totalDeposits}}" data-kt-countup-prefix="RS.">0</div>
+																</div>
+																<!--end::Number-->
+																<!--begin::Label-->
+																<div class="fw-bold fs-6 text-gray-400">Total Deposit</div>
 																<!--end::Label-->
 															</div>
 															<!--end::Stat-->
