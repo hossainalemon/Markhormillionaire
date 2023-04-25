@@ -15,6 +15,7 @@ class DashboardController extends Controller
        $user = Auth::user();
         $totalDeposits = Deposit::where('user_id', $user->id)->where('status', 'active')->sum('amount');
         $totalWithdraw = Withdrawal::where('user_id', $user->id)->where('status', 'active')->sum('amount');
+        
         $deposits = Deposit::where('status', 'pending')->get();
         $withdrawals = Withdrawal::where('status', 'pending')->get();
         $totalDeposit = Deposit::where('status', 'pending')->sum('id');
@@ -22,39 +23,43 @@ class DashboardController extends Controller
 
         return view('dashboard', ['user' => $user, "totalDeposits" => $totalDeposits, "totalWithdraw" => $totalWithdraw, "withdrawals"=>$withdrawals, "deposits"=>$deposits, 'totalDeposit'=>$totalDeposit, 'totWithdraw'=>$totWithdraw]);
     }
-   public function depositUpdate(Request $request, $id)
-{
-    $request->validate([
-        'status' => 'required|in:pending,active,reject',
-    ]);
-
-    $deposit = Deposit::findOrFail($id);
-    $user_id = $deposit->user_id;
-    $status = $request->status;
-
-    if ($status === 'active' && $deposit->status === 'pending') {
-        $user = User::findOrFail($user_id);
-        $user->current_balance += $deposit->amount;
-        $user->save();
+   public function dipositupdate(Request $request, $id)
+    {
+    $getuserid_deposit = Deposit::select('user_id')->where('id', $id)->first();
+    $getstatus = Deposit::select('status', 'amount')->where('id', $id)->first();
+    if ($getstatus !== null && $getstatus->status == "pending") {
+        $status = "active";
+        $user = User::find($getuserid_deposit->user_id);
+        $new_balance = $user->current_balance + $getstatus->amount;
+        User::where('id', $getuserid_deposit->user_id)->update(['current_balance' => $new_balance]);
+    } else {
+        $status = $getstatus->status;
     }
 
-    $deposit->status = $status;
-    $deposit->save();
+    Deposit::where('id', $id)->update(['status' => $status]);
+    return redirect()->route('dashboard')->with('success', 'Deposit accepted successfully.');
+}
 
-    return redirect()->route('dashboard')->with('success', 'Deposit status updated successfully.');
+ public function withdrawupdate(Request $request, $id)
+    {
+    $getuserid_withdra = Withdrawal::select('user_id')->where('id', $id)->first();
+    $getstatus = Withdrawal::select('status', 'amount')->where('id', $id)->first();
+    if ($getstatus !== null && $getstatus->status == "pending") {
+        $status = "active";
+        $user = User::find($getuserid_withdra->user_id);
+        $new_balance = $user->current_balance - $getstatus->amount;
+        $new_balance_w =$user->withdrawal_balance - $getstatus->amount;
+        User::where('id', $getuserid_withdra->user_id)->update(['current_balance' => $new_balance, 'withdrawal_balance' => $new_balance_w ]);
+    } else {
+        $status = $getstatus->status;
+    }
+
+    Withdrawal::where('id', $id)->update(['status' => $status]);
+    return redirect()->route('dashboard')->with('success', 'Withdrawal accepted successfully.');
 }
 
 
-    public function withdrawupdate(Request $request, $id)
-    {
-
-    $getstatus = Withdrawal::select('status')->where('id', $id)->first();
-    if ($getstatus->status =="pending") {
-        $status ="active";
-    }
-    Withdrawal::where('id', $id)->update(['status'=>$status]);
-    return redirect()->route('dashboard')->with('success', 'Withdrawal Accept successfully.');
-        }
+   
 
     public function withdrawreject(Request $request, $id)
     {

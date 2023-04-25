@@ -45,7 +45,7 @@ Route::middleware(['auth', \App\Http\Middleware\AuthenticateDashboard::class])->
     Route::post('/deposit', [App\Http\Controllers\DashboardController::class, 'dipoststore'])->name('deposit.store');
     Route::get('/deposit/{id}', [App\Http\Controllers\DepositController::class, 'show'])->name('deposit.show');
     Route::get('/deposit/{id}/edit', [App\Http\Controllers\DepositController::class, 'edit'])->name('deposit.edit');
-    Route::put('/deposit/{id}', [App\Http\Controllers\DashboardController::class, 'depositUpdate'])->name('deposit.update');
+    Route::get('/deposit/{id}', [App\Http\Controllers\DashboardController::class, 'dipositupdate'])->name('deposit.update');
 
     Route::get('/deposit/reject/{id}', [App\Http\Controllers\DashboardController::class, 'depositreject'])->name('deposit.reject');
     Route::get('/total/deposits', [App\Http\Controllers\DepositController::class, 'getTotalDeposits'])->name('total_deposits');

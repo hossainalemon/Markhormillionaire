@@ -1,6 +1,6 @@
  @include('header')
 
- <?php $role = 1;
+ <?php $role = 0;
 
  if ($role == 0) {
 
@@ -57,7 +57,7 @@
 																</span>
 																<!--end::Svg Icon-->
 															</a>
-															<a href="#" class="btn btn-sm btn-light-success fw-bolder ms-2 fs-8 py-1 px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">Good
+															<a href="#" class="btn btn-sm btn-light-success fw-bolder ms-2 fs-8 py-1 px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">Good</a>
 														</div>
 														<!--end::Name-->
 													</div>
@@ -2537,7 +2537,7 @@
 
             <div class="modal-body">
             	<div class="symbol symbol-100px me-5">
-																			<img src="assets/media/avatars/{{$deposit->user->photo}}" alt="" />
+																			<img src="assets/media/avatars/{{$withdrawal->user->photo}}" alt="" />
 																		</div>
 																		<!--begin::Card body-->
 									<div class="card-body p-9">
