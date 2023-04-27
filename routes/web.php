@@ -23,6 +23,12 @@ Route::get('/', function () {
 // Sign up route
 Route::get('/signup', 'App\Http\Controllers\UserController@showSignupForm');
 Route::post('/signup', 'App\Http\Controllers\UserController@signup');
+Route::get('/register/{referral_code}', 'App\Http\Controllers\UserController@register');
+
+Route::resource('packages', 'App\Http\Controllers\PackageController');
+Route::post('/feature/{package_id}', [App\Http\Controllers\FeatureController::class, 'store'])->name('feature');
+
+
 
 // Sign in route
 Route::get('/signin', 'App\Http\Controllers\UserController@showSigninForm');

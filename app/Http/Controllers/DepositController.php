@@ -72,17 +72,7 @@ class DepositController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-        'status' => 'active',
-        ]);
-        $deposit = Deposit::findOrFail($id);
-        $deposit->status = $request->status;
-        $deposit->save();
-
-        return redirect()->route('dashboard', $deposit->id)->with('success', 'Deposit Accept successfully.');
-    }
+    
 
     /**
      * Remove the specified deposit from storage.

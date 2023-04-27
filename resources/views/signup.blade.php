@@ -29,6 +29,8 @@
 						<img alt="Logo" style=" margin: 0px 170px;" src="assets/media/logo_f.png" class="h-100px" />
 					</a>
 					<!--end::Logo-->
+								
+								<div class="card-body">
 						<!--begin::Form-->
 						<form class="form w-100" method="post" action="{{ url('/signup') }}" >
 							@csrf
@@ -39,7 +41,7 @@
 								<!--end::Title-->
 								<!--begin::Link-->
 								<div class="text-gray-400 fw-bold fs-4">Already have an account?
-								<a href="/login" class="link-primary fw-bolder">Sign in here</a></div>
+								<a href="/signin" class="link-primary fw-bolder">Sign in here</a></div>
 								<!--end::Link-->
 							</div>
 							<!--end::Heading-->
@@ -64,12 +66,20 @@
 							<div class="fv-row mb-7">
 								<label class="form-label fw-bolder text-light fs-6">Email</label>
 								<input class="form-control form-control-lg form-control-solid" type="email" placeholder="" name="email" autocomplete="off" />
+								@if ($errors->has('email'))
+								<div class="fv-plugins-message-container invalid-feedback"><div data-field="select2_input" data-validator="notEmpty">{{ $errors->first('email') }}</div></div>
+        						
+    					@endif
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
 							<div class="fv-row mb-7">
 								<label class="form-label fw-bolder text-light fs-6">Phone</label>
 								<input class="form-control form-control-lg form-control-solid" type="phone" placeholder="" name="phone" autocomplete="off" />
+								@if ($errors->has('phone'))
+								<div class="fv-plugins-message-container invalid-feedback"><div data-field="select2_input" data-validator="notEmpty">{{ $errors->first('phone') }}</div></div>
+        						
+    					@endif
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
@@ -99,11 +109,20 @@
 								</div>
 								<!--end::Wrapper-->
 								<!--begin::Hint-->
-								<div class="text-muted">Use 8 or more characters with a mix of letters, numbers &amp; symbols.</div>
-								<!--end::Hint-->
-							</div>
-							<!--end::Input group=-->
-							
+								@if ($errors->has('password'))
+    <div class="fv-plugins-message-container invalid-feedback">
+        <div data-field="select2_input" data-validator="notEmpty">
+            {{ $errors->first('password') }}
+        </div>
+    </div>
+@else
+    <div class="text-muted">Use 8 or more characters with a mix of letters, numbers &amp; symbols.</div>
+    <!--end::Hint-->
+</div>
+<!--end::Input group=-->
+@endif
+<input type="text" class="form-control" hidden name="referral_code" value="{{ isset($referral_code) ? $referral_code : '' }}" placeholder="Referral Code (Optional)">
+
 							<!--begin::Input group-->
 							<div class="fv-row mb-10">
 								<label  class="form-check form-check-custom form-check-solid form-check-inline">

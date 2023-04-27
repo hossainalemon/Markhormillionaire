@@ -16,10 +16,7 @@
 									@if(session('error'))
 											    <div class="alert alert-danger">{{ session('error') }}</div>
 								@endif
-								<div class="card-body">
-   
-
-</div>
+								
 
 						<!--begin::Post-->
 						<div class="post d-flex flex-column-fluid" id="kt_post">
@@ -292,6 +289,275 @@
 									</div>
 									<!--end::Card body-->
 								</div>
+
+									<!--begin::Col-->
+									<div class="col-xl-12">
+										<!--begin::Tables Widget 9-->
+										<div class="card card-xl-stretch mb-5 mb-xl-8">
+											<!--begin::Header-->
+											<div class="card-header border-0 pt-5">
+												<h3 class="card-title align-items-start flex-column">
+													<span class="card-label fw-bolder fs-3 mb-1">Deposit Statements</span>
+												</h3>
+											</div>
+											<!--end::Header-->
+											
+
+
+											<!--begin::Body-->
+											<div class="card-body py-3">
+												<!--begin::Table container-->
+												<div class="table-responsive">
+													<!--begin::Table-->
+													<table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+														<!--begin::Table head-->
+														<thead>
+															<tr class="fw-bolder text-muted">
+																
+																<th class="min-w-150px">Authors</th>
+																<th class="min-w-100px">Amount</th>
+																<th class="min-w-120px">Payment Method</th>
+																	<th class="min-w-120px">Transaction No</th>
+																<th class="min-w-100px">Status</th>
+															</tr>
+														</thead>
+														<!--end::Table head-->
+														<!--begin::Table body-->
+														<tbody>
+															@foreach ($deposit_statement as $deposit_state)
+															<tr>
+																<td>
+																	<div class="d-flex align-items-center">
+																		<div class="symbol symbol-45px me-5">
+																			<img src="assets/media/avatars/{{$user->photo}}" alt="" />
+																		</div>
+																		<div class="d-flex justify-content-start flex-column">
+																			<a href="#" class="text-dark fw-bolder text-hover-primary fs-6">{{ $user->name }}</a>
+																		</div>
+																	</div>
+																</td>
+																<td>
+																	<span class="text-muted fw-bold text-muted d-block fs-7">{{ $deposit_state->amount }}.00</span>
+																</td>
+																	<td>
+																	<span class="text-muted fw-bold text-muted d-block fs-7">{{ $deposit_state->payment_method }}</span>
+																</td>
+																	<td>
+																	<span class="text-muted fw-bold text-muted d-block fs-7">{{ $deposit_state->transaction_number}}</span>
+																</td>
+																<td>
+																	<span style="text-transform: capitalize;" class="text-muted fw-bold text-muted d-block fs-7">{{ $deposit_state->status}}</span>
+																</td>
+
+																
+																
+															</tr>
+															        @endforeach
+
+														</tbody>
+														<!--end::Table body-->
+													</table>
+													<!--end::Table-->
+												</div>
+												<!--end::Table container-->
+											</div>
+											<!--begin::Body-->
+										</div>
+										<!--end::Tables Widget 9-->
+									</div>
+									<!--end::Col-->
+									<!--begin::Col-->
+									<div class="col-xl-12">
+										<!--begin::Tables Widget 9-->
+										<div class="card card-xl-stretch mb-5 mb-xl-8">
+											<!--begin::Header-->
+											<div class="card-header border-0 pt-5">
+												<h3 class="card-title align-items-start flex-column">
+													<span class="card-label fw-bolder fs-3 mb-1">Withdrawal Statements</span>
+												</h3>
+											</div>
+											<!--end::Header-->
+											
+
+
+											<!--begin::Body-->
+											<div class="card-body py-3">
+												<!--begin::Table container-->
+												<div class="table-responsive">
+													<!--begin::Table-->
+													<table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+														<!--begin::Table head-->
+														<thead>
+															<tr class="fw-bolder text-muted">
+																
+																<th class="min-w-150px">Authors</th>
+																<th class="min-w-100px">Amount</th>
+																<th class="min-w-120px">Payment Method</th>
+																	<th class="min-w-120px">Transaction No</th>
+																<th class="min-w-100px">Status</th>
+															</tr>
+														</thead>
+														<!--end::Table head-->
+														<!--begin::Table body-->
+														<tbody>
+															@foreach ($withdrawal_statement as $withdrawal_state)
+															<tr>
+																<td>
+																	<div class="d-flex align-items-center">
+																		<div class="symbol symbol-45px me-5">
+																			<img src="assets/media/avatars/{{$user->photo}}" alt="" />
+																		</div>
+																		<div class="d-flex justify-content-start flex-column">
+																			<a href="#" class="text-dark fw-bolder text-hover-primary fs-6">{{ $user->name }}</a>
+																		</div>
+																	</div>
+																</td>
+																<td>
+																	<span class="text-muted fw-bold text-muted d-block fs-7">{{ $withdrawal_state->amount }}.00</span>
+																</td>
+																	<td>
+																	<span class="text-muted fw-bold text-muted d-block fs-7">{{ $withdrawal_state->payment_method }}</span>
+																</td>
+																	<td>
+																	<span class="text-muted fw-bold text-muted d-block fs-7">{{ $withdrawal_state->account_number}}</span>
+																</td>
+																<td>
+																	<span style="text-transform: capitalize;" class="text-muted fw-bold text-muted d-block fs-7">{{ $withdrawal_state->status}}</span>
+																</td>
+
+																
+																
+															</tr>
+															        @endforeach
+
+														</tbody>
+														<!--end::Table body-->
+													</table>
+													<!--end::Table-->
+												</div>
+												<!--end::Table container-->
+											</div>
+											<!--begin::Body-->
+										</div>
+										<!--end::Tables Widget 9-->
+									</div>
+									<!--end::Col-->
+									<!--begin::Basic info-->
+								<div class="card mb-5 mb-xl-10">
+									<!--begin::Card header-->
+									<div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+										<!--begin::Card title-->
+										<div class="card-title m-0">
+											<h3 class="fw-bolder m-0">Profile Update</h3>
+										</div>
+										<!--end::Card title-->
+									</div>
+									<!--begin::Card header-->
+									<!--begin::Content-->
+									<div id="kt_account_profile_details" class="collapse show">
+										<!--begin::Form-->
+										<form id="kt_account_profile_details_form" class="form">
+											<!--begin::Card body-->
+											<div class="card-body border-top p-9">
+												<!--begin::Input group-->
+												<div class="row mb-6">
+													<!--begin::Label-->
+													<label class="col-lg-4 col-form-label fw-bold fs-6">Avatar</label>
+													<!--end::Label-->
+													<!--begin::Col-->
+													<div class="col-lg-8">
+														<!--begin::Image input-->
+														<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url(assets/media/avatars/blank.png)">
+															<!--begin::Preview existing avatar-->
+															<div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/{{$user->photo;}})"></div>
+															<!--end::Preview existing avatar-->
+															<!--begin::Label-->
+															<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+																<i class="bi bi-pencil-fill fs-7"></i>
+																<!--begin::Inputs-->
+																<input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+																<input type="hidden" name="avatar_remove" />
+																<!--end::Inputs-->
+															</label>
+															<!--end::Label-->
+															<!--begin::Cancel-->
+															<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+																<i class="bi bi-x fs-2"></i>
+															</span>
+															<!--end::Cancel-->
+															<!--begin::Remove-->
+															<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+																<i class="bi bi-x fs-2"></i>
+															</span>
+															<!--end::Remove-->
+														</div>
+														<!--end::Image input-->
+														<!--begin::Hint-->
+														<div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+														<!--end::Hint-->
+													</div>
+													<!--end::Col-->
+												</div>
+												<!--end::Input group-->
+
+												<!--begin::Input group-->
+												<div class="row mb-6">
+													<!--begin::Label-->
+													<label class="col-lg-4 col-form-label fw-bold fs-6">
+														<span class="required">Full name</span>
+														<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" ></i>
+													</label>
+													<!--end::Label-->
+													<!--begin::Col-->
+													<div class="col-lg-8 fv-row">
+														<input type="tel" name="name" class="form-control form-control-lg form-control-solid"  value="{{$user->name;}}" />
+													</div>
+													<!--end::Col-->
+												</div>
+												<!--end::Input group-->
+												
+												<!--begin::Input group-->
+												<div class="row mb-6">
+													<!--begin::Label-->
+													<label class="col-lg-4 col-form-label fw-bold fs-6">
+														<span class="required">Contact Phone</span>
+														<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Phone number must be active"></i>
+													</label>
+													<!--end::Label-->
+													<!--begin::Col-->
+													<div class="col-lg-8 fv-row">
+														<input type="tel" name="phone" class="form-control form-control-lg form-control-solid" placeholder="Phone number" value="{{$user->phone;}}" />
+													</div>
+													<!--end::Col-->
+												</div>
+												<!--end::Input group-->
+												<!--begin::Input group-->
+												<div class="row mb-6">
+													<!--begin::Label-->
+													<label class="col-lg-4 col-form-label fw-bold fs-6">Email</label>
+													<!--end::Label-->
+													<!--begin::Col-->
+													<div class="col-lg-8 fv-row">
+														<input type="text" name="website" class="form-control form-control-lg form-control-solid" placeholder="Company website" value="{{$user->email;}}" />
+													</div>
+													<!--end::Col-->
+												</div>
+												<!--end::Input group-->
+												
+											</div>
+											<!--end::Card body-->
+											<!--begin::Actions-->
+											<div class="card-footer d-flex justify-content-end py-6 px-9">
+												<button type="reset" class="btn btn-light btn-active-light-primary me-2">Discard</button>
+												<button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Save Changes</button>
+											</div>
+											<!--end::Actions-->
+										</form>
+										<!--end::Form-->
+									</div>
+									<!--end::Content-->
+								</div>
+								<!--end::Basic info-->
 							</div>
 							<!--end::Container-->
 						</div>
