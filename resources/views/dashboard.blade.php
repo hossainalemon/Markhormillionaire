@@ -1,6 +1,6 @@
  @include('header')
 
- <?php $role = 0;
+ <?php $role = 1;
 
  if ($role == 0) {
 

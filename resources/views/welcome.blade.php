@@ -22,17 +22,22 @@
               <li><a href="">Home</a></li>
               <li><a href="">Categories</a></li>
               <li><a href="">Get Start Earn</a></li>
-              <li><a href="">Contract</a></li>
+              <li><a href="">Contact Us</a></li>
 
            </ul>
            <div class="search">
                <input type="search" name="search" placeholder="Search...">
                <button>  <i class="fa fa-phone-flip"></i>
-</button>
+                    </button>
            </div>
        </div>
        <!-- end::menu -->
-
+       <br>
+       <div class="search_mobile">
+               <input type="search" name="search" placeholder="Search...">
+               <button>  <i class="fa fa-phone-flip"></i>
+                    </button>
+           </div>
        <!-- slider -->
        <div class="slider">
            <div class="slider-content">
@@ -40,7 +45,8 @@
     <span class="mewron"> Get financial freedom </span><br>
  <span class="orange">&</span> rule the world <span class="orange">!</span></h1>
  <p class="slider-content-des"> Becoming a leader with Markhor will give you , Online earning, profits, Monthly non working, and can make you a brand in itself! </p>
- <button class="primary-btn">Register Now</button>
+<br>
+ <a class="primary-btn" href="/signup">Register Now</a>
        </div>
        <div class="slider-thumail">
            <img src="assets/media/header.png">
@@ -49,6 +55,12 @@
 <!-- end::slider -->
           </div>
    <!-- end::Header -->
+   <div class="mobile_menu">
+       <ul class="menu_mobile">
+           <li><a href="#"> <img src="assets/media/home.png"> </a></li>
+           <li><a href="#"> <img src="assets/media/account.png"> </a></li>
+       </ul>
+   </div>
 
    <!-- Featured Products  -->
    <div class="featured-products">
@@ -119,6 +131,7 @@
        <!-- end::products -->
    </div>
    <!-- end::Featured Products  -->
+
 <!-- being::footer -->
     <div class="footer">
         <div class="logo">
@@ -149,5 +162,6 @@
     </div>
     <div class="copyright"><p>Copy right by Markhormillionaire | Design and develop by ze group</p></div>
 <!-- end::footer -->
+
 </body>
 </html>
