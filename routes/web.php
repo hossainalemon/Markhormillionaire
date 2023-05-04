@@ -19,14 +19,13 @@ Route::get('/', function () {
 Route::get('/product', function () {
     return view('product');
 });
-Route::get('/sub', function () {
-    return view('subcrip');
-});
 Route::get('/about', function () {
     return view('about');
 });
 
+// Packges\
 
+Route::get('/sub', 'App\Http\Controllers\PackageController@subrip');
 
 // Sign up route
 Route::get('/signup', 'App\Http\Controllers\UserController@showSignupForm');

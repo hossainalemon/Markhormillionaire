@@ -13,6 +13,11 @@ class PackageController extends Controller
         $packages = Package::all();
         return view('packages', compact('packages'));
     }
+    public function subrip()
+    {
+        $all_packages = Package::all();
+        return view('subcrip', compact('all_packages'));
+    }
 
     public function create()
     {

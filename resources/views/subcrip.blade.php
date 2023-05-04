@@ -87,43 +87,16 @@
 <!-- about content -->
 <div class="packges">
   <div class="row">
+  @foreach($all_packages as $all_package)
     <div class="col-6">
       <div class="packge">
        
-         <img src="assets/media/sub-01.png">
+      <a href="active/"><img src="assets/media/{{$all_package->description}}"></a> 
          
         </div>
       </div>
-      <div class="col-6">
-      <div class="packge">
-       
-         <img src="assets/media/sub-02.png">
-         
-        </div>
-      </div>
-      <div class="col-6">
-      <div class="packge">
-       
-         <img src="assets/media/sub-03.png">
-         
-        </div>
-      </div>
-      <div class="col-6">
-      <div class="packge">
-       
-         <img src="assets/media/sub-04.png">
-         
-        </div>
-      </div>
-      <div class="col-6">
-      <div class="packge">
-       
-         <img src="assets/media/sub-05.png">
-         
-        </div>
-      </div>
-
-
+      @endforeach
+    
     </div>
   </div>
 </div>
