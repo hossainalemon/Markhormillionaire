@@ -17,6 +17,8 @@ class CreatePackagesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->decimal('level1_commission', 8, 2)->nullable();
+            $table->decimal('level2_commission', 8, 2)->nullable();
             $table->decimal('price', 8, 2)->default(0);
             $table->timestamps();
         });

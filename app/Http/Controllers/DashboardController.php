@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Deposit;
 use App\Models\User;
 use App\Models\Withdrawal;
+use App\Models\Package;
 
 class DashboardController extends Controller
 {
@@ -22,8 +23,9 @@ class DashboardController extends Controller
         $withdrawals = Withdrawal::where('status', 'pending')->get();
         $totalDeposit = Deposit::where('status', 'pending')->sum('id');
         $totWithdraw = Withdrawal::where('status', 'pending')->sum('id');
+        $package = Package::where('id', $user->package_id)->get();
 
-        return view('dashboard', ['user' => $user, "totalDeposits" => $totalDeposits, "totalWithdraw" => $totalWithdraw, "withdrawals"=>$withdrawals, "deposits"=>$deposits, 'totalDeposit'=>$totalDeposit, 'totWithdraw'=>$totWithdraw, 'deposit_statement'=>$deposit_statement, 'withdrawal_statement'=>$withdrawal_statement]);
+        return view('dashboard', ['user' => $user, "totalDeposits" => $totalDeposits, "totalWithdraw" => $totalWithdraw, "withdrawals"=>$withdrawals, "deposits"=>$deposits, 'totalDeposit'=>$totalDeposit, 'totWithdraw'=>$totWithdraw, 'deposit_statement'=>$deposit_statement, 'withdrawal_statement'=>$withdrawal_statement, 'package'=>$package]);
     }
    public function dipositupdate(Request $request, $id)
     {
@@ -60,6 +62,20 @@ class DashboardController extends Controller
     return redirect()->route('dashboard')->with('success', 'Withdrawal accepted successfully.');
 }
 
+public function activate(Request $request, $id)
+{
+    $user = Auth::user();
+    $package = Package::find($id);
+    if($user->current_balance < $package->price) {
+    return redirect()->route('dashboard')->with('deposit', 'Please Deposit');
+} else {
+    $user->current_balance -= $package->price;
+    $user->package_id = $package->id;
+    $user->save();
+    return redirect()->route('dashboard')->with('success', 'Package Activated Successfully');
+}
+
+}
 
    
 

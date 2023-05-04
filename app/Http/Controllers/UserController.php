@@ -26,38 +26,31 @@ class UserController extends Controller
     return view('signin');
     }
     public function signup(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string',
-            'phone' => 'required|string|unique:users',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|min:8',
-        ]);
+{
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|string',
+        'phone' => 'required|string|unique:users',
+        'email' => 'required|string|email|unique:users',
+        'password' => 'required|string|min:8',
+    ]);
 
-        if ($validator->fails()) {
+    if ($validator->fails()) {
         return view('signup')->withErrors($validator);
-        }
-        $referralCode = $this->generateReferralCode();
-        $user = new User([
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'role' => 'customer',
-            'status' => 'active',
-        ]);
+    }
 
-        $user->save();
+    $referral_code = Str::random(6);
+
+    $user = new User([
+        'name' => $request->name,
+        'phone' => $request->phone,
+        'email' => $request->email,
+        'password' => bcrypt($request->password),
+        'role' => 'customer',
+        'status' => 'active',
+        'referral_code' => $referral_code, // set referral code for user
+    ]);
 
     return redirect('/dashboard');
-    }
-    private function generateReferralCode()
-{
-    $referralCode = Str::random(6); // Generate a random 6 character string as referral code
-    while (User::where('referral_code', $referralCode)->exists()) {
-        $referralCode = Str::random(6);
-    }
-    return $referralCode;
 }
 
     /**
@@ -89,15 +82,6 @@ class UserController extends Controller
     return redirect()->route('dashboard')->with(['token' => $token]);
 }
 
-public function register($referralCode)
-{
-    $referrer = User::where('referral_code', $referralCode)->first();
-    if (!$referrer) {
-        abort(404);
-    }
 
-    // Pass the referral code to the view
-    return view('signup', ['referral_code' => $referralCode]);
-}
 
 }

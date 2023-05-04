@@ -42,7 +42,7 @@
         <button class="btn nav-search-btn" type="submit">&nbsp&nbsp<i class="fa-solid fa-magnifying-glass"></i>&nbsp&nbsp</button>
       </form>
       <div class="left-side"> <i class="fa-solid fa-cart-shopping"><span class="fs-10">01</span> </i>
-      	<a href="/signin">  <img class="user-account" src="assets/media/user.png"></a>
+      	<a href="/dashboard">  <img class="user-account" src="assets/media/user.png"></a>
     </div>
   </div>
 </nav>
@@ -82,6 +82,9 @@
            
        </div>
        <!-- end::title -->
+       @if(session('success'))
+                          <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
   </div>
 </div>
 <!-- about content -->
@@ -91,12 +94,13 @@
     <div class="col-6">
       <div class="packge">
        
-      <a href="active/"><img src="assets/media/{{$all_package->description}}"></a> 
-         
-        </div>
-      </div>
+      <a href="activate/{{$all_package->id}}"><img src="assets/media/{{$all_package->description}}"></a> 
+    </div>
+  </div>
       @endforeach
     
+
+
     </div>
   </div>
 </div>

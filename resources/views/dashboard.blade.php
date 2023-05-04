@@ -11,6 +11,9 @@
 									@if(session('error'))
 											    <div class="alert alert-danger">{{ session('error') }}</div>
 								@endif
+								@if(session('deposit'))
+											    <div class="alert alert-danger">{{ session('deposit') }}</div>
+								@endif
 								
 
 						<!--begin::Post-->
@@ -49,7 +52,21 @@
 																</span>
 																<!--end::Svg Icon-->
 															</a>
-															<a href="#" class="btn btn-sm btn-light-success fw-bolder ms-2 fs-8 py-1 px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">Good</a>
+															<a href="#" class="btn btn-sm btn-light-success fw-bolder ms-2 fs-8 py-1 px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">
+																<?php 
+																	$package_name = $user->package_id;
+
+																	if ($package_name == 1) {
+																		echo  "Starter";
+																	}elseif ($package_name == 2) {
+																		echo  "Silver";
+																	}elseif ($package_name == 3) {
+																		echo  "Gold";
+																	}
+
+																?>	
+
+															</a>
 														</div>
 														<!--end::Name-->
 													</div>

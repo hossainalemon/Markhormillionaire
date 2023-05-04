@@ -66,6 +66,7 @@ Route::middleware(['auth', \App\Http\Middleware\AuthenticateDashboard::class])->
 
     Route::get('/withdrawal/{id}', [App\Http\Controllers\DashboardController::class, 'withdrawupdate'])->name('withdrawal.update');
    Route::get('/withdrawal/reject/{id}/', [App\Http\Controllers\DashboardController::class, 'withdrawreject'])->name('withdrawal.reject');
+   Route::get('/activate/{id}/', [App\Http\Controllers\DashboardController::class, 'activate'])->name('activate');
 });
     
  

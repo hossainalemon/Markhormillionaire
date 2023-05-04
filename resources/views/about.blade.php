@@ -42,7 +42,7 @@
         <button class="btn nav-search-btn" type="submit">&nbsp&nbsp<i class="fa-solid fa-magnifying-glass"></i>&nbsp&nbsp</button>
       </form>
       <div class="left-side"> <i class="fa-solid fa-cart-shopping"><span class="fs-10">01</span> </i>
-      	<a href="/signin">  <img class="user-account" src="assets/media/user.png"></a>
+      	<a href="/dashboard">  <img class="user-account" src="assets/media/user.png"></a>
       </div>
     </div>
   </div>
