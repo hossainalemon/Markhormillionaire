@@ -22,8 +22,6 @@ Route::get('/product', function () {
 
 
 
-
-
 // Sign up route
 Route::get('/signup', 'App\Http\Controllers\UserController@showSignupForm');
 Route::post('/signup', 'App\Http\Controllers\UserController@signup');
