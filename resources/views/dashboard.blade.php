@@ -1,11 +1,6 @@
  @include('header')
 
- <?php $role = 1;
-
- if ($role == 0) {
-
- 
- ?>
+ @if($user->role == "customer")
  					<!--begin::Content-->
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						<br/><br/><br/><br/>
@@ -30,7 +25,7 @@
 											<!--begin: Pic-->
 											<div class="me-7 mb-4">
 												<div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
-													<img src="assets/media/avatars/150-26.jpg" alt="image" />
+													<img src="assets/media/user.png" alt="image" />
 													<div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-white h-20px w-20px"></div>
 												</div>
 											</div>
@@ -277,11 +272,11 @@
 										<!--begin::Input group-->
 										<div class="row mb-10">
 											<!--begin::Label-->
-											<label class="col-lg-4 fw-bold text-muted">Allow Changes</label>
+											<label class="col-lg-4 fw-bold text-muted">Referral Code</label>
 											<!--begin::Label-->
 											<!--begin::Label-->
 											<div class="col-lg-8">
-												<span class="fw-bold fs-6 text-gray-800">{{ $totalDeposits}}</span>
+												<span class="fw-bold fs-6 text-gray-800">{{ $user->	referral_code}}</span>
 											</div>
 											<!--begin::Label-->
 										</div>
@@ -329,7 +324,7 @@
 																<td>
 																	<div class="d-flex align-items-center">
 																		<div class="symbol symbol-45px me-5">
-																			<img src="assets/media/avatars/{{$user->photo}}" alt="" />
+																			<img src="assets/media/{{$user->photo}}" alt="" />
 																		</div>
 																		<div class="d-flex justify-content-start flex-column">
 																			<a href="#" class="text-dark fw-bolder text-hover-primary fs-6">{{ $user->name }}</a>
@@ -405,7 +400,7 @@
 																<td>
 																	<div class="d-flex align-items-center">
 																		<div class="symbol symbol-45px me-5">
-																			<img src="assets/media/avatars/{{$user->photo}}" alt="" />
+																			<img src="assets/media/{{$user->photo}}" alt="" />
 																		</div>
 																		<div class="d-flex justify-content-start flex-column">
 																			<a href="#" class="text-dark fw-bolder text-hover-primary fs-6">{{ $user->name }}</a>
@@ -467,9 +462,9 @@
 													<!--begin::Col-->
 													<div class="col-lg-8">
 														<!--begin::Image input-->
-														<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url(assets/media/avatars/blank.png)">
+														<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url(assets/media/user.png)">
 															<!--begin::Preview existing avatar-->
-															<div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/{{$user->photo;}})"></div>
+															<div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/{{$user->photo;}})"></div>
 															<!--end::Preview existing avatar-->
 															<!--begin::Label-->
 															<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
@@ -635,7 +630,7 @@
     </div>
   </div>
 </div>
-<?php } else {?>	
+@else
 <!--begin::Content-->
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						<br><br/><br>
@@ -1134,7 +1129,7 @@
 																<td>
 																	<div class="d-flex align-items-center">
 																		<div class="symbol symbol-45px me-5">
-																			<img src="assets/media/avatars/blank.png" alt="" />
+																			<img src="assets/media/user.png" alt="" />
 																		</div>
 																		<div class="d-flex justify-content-start flex-column">
 																			<a href="#" class="text-dark fw-bolder text-hover-primary fs-6">{{ $deposit->user->name }}</a>
@@ -1261,7 +1256,7 @@
 																<td>
 																	<div class="d-flex align-items-center">
 																		<div class="symbol symbol-45px me-5">
-																			<img src="assets/media/avatars/blank.png" alt="" />
+																			<img src="assets/media/user.png" alt="" />
 																		</div>
 																		<div class="d-flex justify-content-start flex-column">
 																			<a href="#" class="text-dark fw-bolder text-hover-primary fs-6">{{ $withdrawal->user->name }}</a>
@@ -1438,7 +1433,7 @@
 												<div class="d-flex align-items-center mb-7">
 													<!--begin::Avatar-->
 													<div class="symbol symbol-50px me-5">
-														<img src="assets/media/avatars/150-1.jpg" class="" alt="" />
+														<img src="assets/media/150-1.jpg" class="" alt="" />
 													</div>
 													<!--end::Avatar-->
 													<!--begin::Text-->
@@ -1453,7 +1448,7 @@
 												<div class="d-flex align-items-center mb-7">
 													<!--begin::Avatar-->
 													<div class="symbol symbol-50px me-5">
-														<img src="assets/media/avatars/150-4.jpg" class="" alt="" />
+														<img src="assets/media/150-4.jpg" class="" alt="" />
 													</div>
 													<!--end::Avatar-->
 													<!--begin::Text-->
@@ -1468,7 +1463,7 @@
 												<div class="d-flex align-items-center mb-7">
 													<!--begin::Avatar-->
 													<div class="symbol symbol-50px me-5">
-														<img src="assets/media/avatars/150-12.jpg" class="" alt="" />
+														<img src="assets/media/150-12.jpg" class="" alt="" />
 													</div>
 													<!--end::Avatar-->
 													<!--begin::Text-->
@@ -1483,7 +1478,7 @@
 												<div class="d-flex align-items-center mb-7">
 													<!--begin::Avatar-->
 													<div class="symbol symbol-50px me-5">
-														<img src="assets/media/avatars/150-8.jpg" class="" alt="" />
+														<img src="assets/media/150-8.jpg" class="" alt="" />
 													</div>
 													<!--end::Avatar-->
 													<!--begin::Text-->
@@ -1498,7 +1493,7 @@
 												<div class="d-flex align-items-center">
 													<!--begin::Avatar-->
 													<div class="symbol symbol-50px me-5">
-														<img src="assets/media/avatars/150-6.jpg" class="" alt="" />
+														<img src="assets/media/150-6.jpg" class="" alt="" />
 													</div>
 													<!--end::Avatar-->
 													<!--begin::Text-->
@@ -2690,7 +2685,7 @@
 
             <div class="modal-body">
             	<div class="symbol symbol-100px me-5">
-																			<img src="assets/media/avatars/{{$deposit->user->photo}}" alt="" />
+																			<img src="assets/media/{{$deposit->user->photo}}" alt="" />
 																		</div>
 																		<!--begin::Card body-->
 									<div class="card-body p-9">
@@ -2803,7 +2798,7 @@
 
             <div class="modal-body">
             	<div class="symbol symbol-100px me-5">
-																			<img src="assets/media/avatars/{{$withdrawal->user->photo}}" alt="" />
+																			<img src="assets/media/{{$withdrawal->user->photo}}" alt="" />
 																		</div>
 																		<!--begin::Card body-->
 									<div class="card-body p-9">
@@ -2900,5 +2895,5 @@
 </div>
 @endforeach
 					<!-- end::deposit modal -->
-<?php }?>		
+@endif	
 @include('footer')

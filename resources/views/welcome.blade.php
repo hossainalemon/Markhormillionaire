@@ -3,165 +3,212 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Markhormillionaire</title>
-<!-- main style -->
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
-<link rel="stylesheet" href="{{asset('assets/fontawesome/css/fontawesome.min.css')}}">
-
+    <title>Markhor Millionaire</title>
+    <!-- Css link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
 </head>
 <body>
-   <!-- Header -->
-   <div class="header">
-       <!-- menu -->
-       <div class="header_menu">
-        <div class="header_logo_div">
-            <img class="header_logo" src="assets/media/logo.jpg">
+<div class="container-fluid content">
+    <!-- begin::header -->
+    <div class="header text-center">
+        <!-- being::nav menu -->
+        <br><br>
+        <div class="nav_menu">
+            <nav class="navbar rounded-4 navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+   <a class="navbar-brand" href="#">
+      <img src="assets/media/logo_f.png" alt="Bootstrap" width="30" height="24">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+       <li class="nav-item">
+          <a class="nav-link" href="/about">About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/sub">Subscriptions</a>
+        </li>
+       
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control nav-search-put" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn nav-search-btn" type="submit">&nbsp&nbsp<i class="fa-solid fa-magnifying-glass"></i>&nbsp&nbsp</button>
+      </form>
+      <div class="left-side"> <i class="fa-solid fa-cart-shopping"><span class="fs-10">01</span> </i>
+      <a href="/signin">  <img class="user-account" src="assets/media/user.png"></a>
+      </div>
+    </div>
+  </div>
+</nav>
         </div>
-        
-           <ul>
-              <li><a href="">Home</a></li>
-              <li><a href="">Categories</a></li>
-              <li><a href="">Get Start Earn</a></li>
-              <li><a href="">Contact Us</a></li>
-
-           </ul>
-           <div class="search">
-               <input type="search" name="search" placeholder="Search...">
-               <button>  <i class="fa fa-phone-flip"></i>
-                    </button>
-           </div>
-       </div>
-       <!-- end::menu -->
-       <br>
-       <div class="search_mobile">
-               <input type="search" name="search" placeholder="Search...">
-               <button>  <i class="fa fa-phone-flip"></i>
-                    </button>
-           </div>
-       <!-- slider -->
-       <div class="slider">
-           <div class="slider-content">
+        <!-- end:nav menu -->
+        <br>
+        <!-- being::slider -->
+        <div class="row align-items-center">
+            <div class="col-6">
+                <div class="slider-content">
            <h1><span class="cyen normal">Come Earn</span><br>
     <span class="mewron"> Get financial freedom </span><br>
  <span class="orange">&</span> rule the world <span class="orange">!</span></h1>
  <p class="slider-content-des"> Becoming a leader with Markhor will give you , Online earning, profits, Monthly non working, and can make you a brand in itself! </p>
-<br>
  <a class="primary-btn" href="/signup">Register Now</a>
        </div>
-       <div class="slider-thumail">
-           <img src="assets/media/header.png">
-       </div>
-       </div>
-<!-- end::slider -->
-          </div>
-   <!-- end::Header -->
-   <div class="mobile_menu">
-       <ul class="menu_mobile">
-           <li><a href="#"> <img src="assets/media/home.png"> </a></li>
-           <li><a href="#"> <img src="assets/media/account.png"> </a></li>
-       </ul>
-   </div>
+            </div>
+            <div class="col-6 ">
+                <div class="slider-thumail">
+                    <img src="assets/media/header.png">
+                </div>
+            </div>
+        </div>
+        <!-- end::slider -->
+    </div>
+    <!-- end::header -->
+</div>
 
-   <!-- Featured Products  -->
-   <div class="featured-products">
-       <!-- begin::title -->
+<br>
+<!-- begin::title -->
        <div class="title">
-           <h2 class="upcase">Featured Products</h2>
+           <h2 class="upcase">Feature Products</h2>
            <div class="title-bar-light"></div>
            <div class="title-bar-dark"></div>
            
        </div>
        <!-- end::title -->
+<!-- being::products -->
+<div class="products">
+    <div class="row">
 
-       <!-- begin::products -->
-       <div class="products">
-           <!-- begin:: item -->
-           <div class="product-grid">
-           <div class="product-thumbnail">
-               <img src="assets/media/headphone.jpg">
-           </div>
-           <div class="product-content">
-               <h3>Headphones Bluetooth Style 3 Lavender</h3>
-               <p class="center">Extra comfortable over-ear headphones for better noise cancellation.</p>
-               <p>RS.4000.00</p>
-           </div>
-           <div class="addtocard"> <a href="#">Buy</a> </div>
-       </div>
-           <!-- end::item -->
-            <!-- begin:: item -->
-           <div class="product-grid">
-           <div class="product-thumbnail">
-               <img src="assets/media/headphone.jpg">
-           </div>
-           <div class="product-content">
-               <h3>Headphones Bluetooth Style 3 Lavender</h3>
-               <p class="center">Extra comfortable over-ear headphones for better noise cancellation.</p>
-               <p>RS.4000.00</p>
-           </div>
-           <div class="addtocard"> <a href="#">Buy</a> </div>
-       </div>
-           <!-- end::item -->
-            <!-- begin:: item -->
-           <div class="product-grid">
-           <div class="product-thumbnail">
-               <img src="assets/media/headphone.jpg">
-           </div>
-           <div class="product-content">
-               <h3>Headphones Bluetooth Style 3 Lavender</h3>
-               <p class="center">Extra comfortable over-ear headphones for better noise cancellation.</p>
-               <p>RS.4000.00</p>
-           </div>
-           <div class="addtocard"> <a href="#">Buy</a> </div>
-       </div>
-           <!-- end::item -->
-            <!-- begin:: item -->
-           <div class="product-grid">
-           <div class="product-thumbnail">
-               <img src="assets/media/headphone.jpg">
-           </div>
-           <div class="product-content">
-               <h3>Headphones Bluetooth Style 3 Lavender</h3>
-               <p class="center">Extra comfortable over-ear headphones for better noise cancellation.</p>
-               <p>RS.4000.00</p>
-           </div>
-           <div class="addtocard"> <a href="#">Buy</a> </div>
-       </div>
-           <!-- end::item -->
-       </div>
-       <!-- end::products -->
-   </div>
-   <!-- end::Featured Products  -->
+  <!-- item::begin -->
+   <div class="col-4">
+    <div class="product-grid">
+      <div class="product-thumbnail">
+       <img src="assets/media/headphone.jpg">
+     </div>
+     <div class="product-content">
+       <h3 class="text-center">Headphones Bluetooth Style 3 Lavender</h3>
+               <p class="text-center">Extra comfortable over-ear headphones for better noise cancellation. \n RS.4000.00</p>
+               <p class="text-center"></p>
+     </div>
+    </div>
+   </div> 
+  <!-- item::end -->
+   <!-- item::begin -->
+   <div class="col-4">
+    <div class="product-grid">
+      <div class="product-thumbnail">
+       <img src="assets/media/headphone.jpg">
+     </div>
+     <div class="product-content">
+       <h3 class="text-center">Headphones Bluetooth Style 3 Lavender</h3>
+               <p class="text-center">Extra comfortable over-ear headphones for better noise cancellation. \n RS.4000.00</p>
+               <p class="text-center"></p>
+     </div>
+    </div>
+   </div> 
+  <!-- item::end -->
+   <!-- item::begin -->
+   <div class="col-4">
+    <div class="product-grid">
+      <div class="product-thumbnail">
+       <img src="assets/media/headphone.jpg">
+     </div>
+     <div class="product-content">
+       <h3 class="text-center">Headphones Bluetooth Style 3 Lavender</h3>
+               <p class="text-center">Extra comfortable over-ear headphones for better noise cancellation. \n RS.4000.00</p>
+               <p class="text-center"></p>
+     </div>
+    </div>
+   </div> 
+  <!-- item::end -->
+   <!-- item::begin -->
+   <div class="col-4">
+    <div class="product-grid">
+      <div class="product-thumbnail">
+       <img src="assets/media/headphone.jpg">
+     </div>
+     <div class="product-content">
+       <h3 class="text-center">Headphones Bluetooth Style 3 Lavender</h3>
+               <p class="text-center">Extra comfortable over-ear headphones for better noise cancellation. \n RS.4000.00</p>
+               <p class="text-center"></p>
+     </div>
+    </div>
+   </div> 
+  <!-- item::end -->
+   <!-- item::begin -->
+   <div class="col-4">
+    <div class="product-grid">
+      <div class="product-thumbnail">
+       <img src="assets/media/headphone.jpg">
+     </div>
+     <div class="product-content">
+       <h3 class="text-center">Headphones Bluetooth Style 3 Lavender</h3>
+               <p class="text-center">Extra comfortable over-ear headphones for better noise cancellation. \n RS.4000.00</p>
+               <p class="text-center"></p>
+     </div>
+    </div>
+   </div> 
+  <!-- item::end -->
+   <!-- item::begin -->
+   <div class="col-4">
+    <div class="product-grid">
+      <div class="product-thumbnail">
+       <img src="assets/media/headphone.jpg">
+     </div>
+     <div class="product-content">
+       <h3 class="text-center">Headphones Bluetooth Style 3 Lavender</h3>
+               <p class="text-center">Extra comfortable over-ear headphones for better noise cancellation. \n RS.4000.00</p>
+               <p class="text-center"></p>
+     </div>
+    </div>
+   </div> 
+  <!-- item::end -->
+ 
+  </div>
+</div>
+<!-- end::products -->
 
-<!-- being::footer -->
-    <div class="footer">
-        <div class="logo">
-            <img src="assets/media/logo_f.png">
-        </div>
-        <div class="about">
-            <h4> About us</h4>
+
+<!-- begin::footer -->
+<div class="footer">
+  <div class="row align-items-center footer-row">
+    <div class="col-3">
+      <img class="footer-logo" src="assets/media/logo_f.png">
+    </div>
+    <div class="col-3">
+      <h4> About us</h4>
             <ul>
                 <li><a href="#">Contact Us</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="/about.php">About</a></li>
                 <li><a href="#">FAQ</a></li>
             </ul>
-        </div>
-        <div class="help">
-             <h4> HELP</h4>
+    </div>
+    <div class="col-3">
+      <h4> HELP</h4>
             <ul>
                 <li><a href="#">Privacy Policy</a></li>
             </ul>
-        </div>
-        <div class="social">
-            <h4> Social</h4>
-            <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Instagram</a></li>
-            </ul>
-        </div>
     </div>
-    <div class="copyright"><p>Copy right by Markhormillionaire | Design and develop by ze group</p></div>
-<!-- end::footer -->
+    <div class="col-3">
+     <h4> Social</h4>
+            <ul>
+               <li><a href="https://www.facebook.com/cataclymisation">Facebook</a></li>
+                <li><a href="https://twitter.com/Markhormillion">Twitter</a></li>
+                <li><a href="https://instagram.com/markhormillionaire">Instagram</a></li>
+                 <li><a href="https://t.me/markhormillionaire">Telegram</a></li>
+            </ul>
+    </div>
 
+  </div>
+</div>
+<!-- end::footer -->
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/28beddf917.js" crossorigin="anonymous"></script>
 </body>
 </html>

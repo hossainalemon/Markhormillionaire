@@ -121,7 +121,16 @@
 </div>
 <!--end::Input group=-->
 @endif
-<input type="text" class="form-control" hidden name="referral_code" value="{{ isset($referral_code) ? $referral_code : '' }}" placeholder="Referral Code (Optional)">
+<!--begin::Input group-->
+							<div class="row fv-row mb-7">
+								
+									<label class="form-label fw-bolder text-light fs-6">Referral Code</label>
+									<input type="text" autocomplete="off" class="form-control" name="referral_code" placeholder="Referral Code (Optional)">
+								
+								<
+							</div>
+							<!--end::Input group-->
+
 
 							<!--begin::Input group-->
 							<div class="fv-row mb-10">

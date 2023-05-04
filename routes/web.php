@@ -19,6 +19,12 @@ Route::get('/', function () {
 Route::get('/product', function () {
     return view('product');
 });
+Route::get('/sub', function () {
+    return view('subcrip');
+});
+Route::get('/about', function () {
+    return view('about');
+});
 
 
 
