@@ -125,7 +125,7 @@
 							<div class="row fv-row mb-7">
 								
 									<label class="form-label fw-bolder text-light fs-6">Referral Code</label>
-									<input type="text" autocomplete="off" class="form-control" name="referral_id" placeholder="Referral Code (Optional)">
+									<input type="text" autocomplete="off" class="form-control" name="referrer_id" placeholder="Referral Code (Optional)">
 								
 								<
 							</div>

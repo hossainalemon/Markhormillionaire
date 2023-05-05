@@ -39,6 +39,15 @@ class UserController extends Controller
     }
 
     $referral_code = Str::random(6);
+   
+
+    // check if a referrer ID was provided
+    if ($request->has('referral_code')) {
+        $referrer = User::where('referral_code', $request->referral_code)->first();
+        if ($referrer) {
+            $referrer_id = $referrer->id;
+        }
+    }
 
     $user = new User([
         'name' => $request->name,
@@ -47,11 +56,15 @@ class UserController extends Controller
         'password' => bcrypt($request->password),
         'role' => 'customer',
         'status' => 'active',
-        'referral_code' => $referral_code, // set referral code for user
+        'referral_code' => $referral_code,
+        'referrer_id' => $request->referrer_id,
     ]);
+
+    $user->save();
 
     return redirect('/dashboard');
 }
+
 
     /**
      * Handle user sign in request
