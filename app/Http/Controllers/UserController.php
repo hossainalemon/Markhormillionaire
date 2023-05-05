@@ -39,7 +39,7 @@ class UserController extends Controller
     }
 
     $referral_code = Str::random(6);
-   
+    $referrer_id = null;
 
     // check if a referrer ID was provided
     if ($request->has('referral_code')) {
@@ -57,7 +57,7 @@ class UserController extends Controller
         'role' => 'customer',
         'status' => 'active',
         'referral_code' => $referral_code,
-        'referrer_id' => $request->referrer_id,
+        'referrer_id' => $referrer_id,
     ]);
 
     $user->save();
